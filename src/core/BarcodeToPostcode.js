@@ -107,16 +107,16 @@ class BarcodeToPostcode {
     printPostCode(barCode) {
         let sec_collection = secBarCode(barCode);
         if (!sec_collection) {
-            return false;
+            return 'Error! 条码错误！ ';
         }
         let formatBarcode = formatBarCode(barCode);
         let barcodes = loadAllBarcodes();
         let postCode = getPostCode(barcodes, formatBarcode);
         let check_result = checkSecCode(postCode);
         if (!check_result) {
-            return false;
+            return 'Error! 验证码错误！ ';
         }
-        let postCodeStr = getPostStrr(postCode, barCode);
+        let postCodeStr = getPostStr(postCode, barCode);
         return postCodeStr;
     }
 }

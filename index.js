@@ -11,7 +11,6 @@ app.get('/index.js', function (req, res) {
     res.send(result);
 });
 app.get('/index1.js', function (req, res) {
-    console.log(req.query.barcode);
     let result = new BarcodeToPostcode().printPostCode(req.query.barcode);
     res.send(result);
 });
